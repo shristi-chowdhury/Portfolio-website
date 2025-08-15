@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shristi Chowdhury </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0c0c0c;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav a {
+        color: #fff;
+        margin: 0 1rem;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #00ffe0;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+        background: radial-gradient(circle at top, #222, #000);
+        padding: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        color: #00ffe0;
+      }
+      .typing-container {
+        font-size: 1.3rem;
+        color: #00ffe0;
+        margin-top: 1.2rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cursor {
+        font-weight: bold;
+        font-size: 1.3rem;
+        color: #00ffe0;
+        animation: blink 0.7s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .hero p {
+        margin-top: 1rem;
+        max-width: 600px;
+        font-size: 1.1rem;
+        color: #ccc;
+      }
+
+      .glass-buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .glass-buttons a {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 0.75rem 1.25rem;
+        border-radius: 10px;
+        text-decoration: none;
+        backdrop-filter: blur(10px);
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .glass-buttons a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-3px);
+      }
+
+      #skills {
+        padding: 4rem 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        scroll-margin-top: 100px;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .skill-box {
+        background: #111;
+        border: 1px solid #2c2c2c;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        color: #00ffe0;
+        min-width: 120px;
+        text-align: center;
+        font-weight: 500;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .skill-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px rgba(0, 255, 224, 0.2);
+      }
+
+      .tasks {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+      }
+
+      .know-more-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #00ffe0;
+        color: #00ffe0;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
+      }
+
+      .know-more-btn:hover {
+        background: #00ffe0;
+        color: #000;
+        transform: translateY(-2px);
+      }
+
+      .task-card {
+        background: #111;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #2c2c2c;
+        box-shadow: 0 0 10px rgba(0, 255, 224, 0.05);
+        transition: 0.3s ease;
+      }
+
+      .task-card:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
+      }
+
+      .task-card h3 {
+        color: #00ffe0;
+        margin-bottom: 0.5rem;
+      }
+
+      .task-card p {
+        color: #aaa;
+        font-size: 0.9rem;
+      }
+
+      #contact {
+        max-width: 600px;
+        margin: 4rem auto;
+        padding: 2.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 16px;
+        border: 1px solid rgba(0, 255, 224, 0.2);
+        box-shadow: 0 0 20px rgba(0, 255, 224, 0.05);
+        backdrop-filter: blur(10px);
+        transition: box-shadow 0.4s ease;
+      }
+
+      #contact:hover {
+        box-shadow: 0 0 30px rgba(0, 255, 224, 0.2);
+      }
+
+      #contact h2 {
+        text-align: center;
+        color: #00ffe0;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        border: 1px solid #00ffe066;
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.3s, box-shadow 0.3s;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #00ffe0;
+        box-shadow: 0 0 10px rgba(0, 255, 224, 0.4);
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .contact-form button {
+        padding: 0.9rem;
+        background: #00ffe0;
+        border: none;
+        border-radius: 10px;
+        color: #000;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: #00e6cc;
+        transform: scale(1.03);
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background: #000;
+        color: #aaa;
+      }
+
+      footer a {
+        color: #00ffe0;
+        text-decoration: none;
+      }
+
+      .social-icons {
+        margin-top: 1rem;
+      }
+
+      .social-icons a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.3rem;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.2);
+      }
+
+      .social-icons .fa-facebook-f:hover {
+        color: #1877f2;
+      }
+
+      .social-icons .fa-instagram:hover {
+        color: #e1306c;
+      }
+
+      .hidden {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div style="font-weight: 700; color: #00ffe0" Shristi.AI ></div>
+      <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#tasks">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="hero">
+      <h1>Shristi Chowdhury</h1>
+      <div class="typing-container">
+        <span id="typing-animation"></span>
+        <span class="cursor">|</span>
+      </div>
+      <p>
+        I build intelligent interfaces, stylish layouts, and automation
+        solutions powered by AI — all coded with precision.
+      </p>
+
+      <div class="glass-buttons">
+        <a
+          href="www.linkedin.com/in/shristi-chowdhury-330b57295"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/shristi-chowdhury" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <section id="skills" class="scroll-reveal">
+      <h2 style="text-align: center; color: #00ffe0; margin-bottom: 2rem">
+        My Skills
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-box">HTML</div>
+        <div class="skill-box">TAILWIND CSS</div>
+        <div class="skill-box">JavaScript</div>
+        <div class="skill-box">PHP</div>
+        <div class="skill-box">MySQL</div>
+        <div class="skill-box">React</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Machine Learning</div>
+        <div class="skill-box">Node.js</div>
+      </div>
+    </section>
+
+    <h2
+      style="
+        text-align: center;
+        color: #00ffe0;
+        margin-bottom: 1.1remrem;
+        font-size: 2rem;
+      "
+    >
+      My Projects
+    </h2>
+    <section class="tasks scroll-reveal" id="tasks">
+      <div class="task-card">
+        <h3> Blockchain-based Credit Score System</h3>
+        <p>
+          A decentralized credit score system based on user's financial behaviour across platforms using Solidity, IPFS, Chainlink, React.js
+          Useful in regions with poor access to traditional credit scores.
+        </p>
+        <a href="#" class="know-more-btn">Know More</a>
+      </div>
+      <div class="task-card">
+        <h3>lace UP </h3>
+        <p>A modern sneaker full stack application (B2B e-commerce website) using HTML,TAILWIND,JS,PHP & MySQL.</p>
+        <a href="#" class="know-more-btn">Know More</a>
+      </div>
+      <div class="task-card">
+        <h3>AI Virtual Assistant</h3>
+        <p>Python-based voice assistant using OpenCV & speech libraries.</p>
+        <a href="#" class="know-more-btn">Know More</a>
+      </div>
+    </section>
+
+    <section
+      id="about"
+      style="
+        padding: 4rem 2rem;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+      "
+      class="scroll-reveal"
+    >
+      <h2 style="color: #00ffe0; margin-bottom: 1rem">About Me</h2>
+      <p>
+        Hey, this is Shristi Chowdhury, a passionate Computer Engineering student with
+        a knack for full-stack web applications,machine-learning, AI and blockchain development.
+      </p>
+    </section>
+
+    <section id="contact" class="scroll-reveal">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Shristi Chowdhury | Designed with 🤖 + ❤️</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shristi.in/" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://www.instagram.com/welkinparadise.in/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".scroll-reveal").forEach((el) => {
+        el.classList.add("hidden");
+        observer.observe(el);
+      });
+
+      //typing
+      const texts = [
+        "Web Developer",
+        "Machine Learning",
+        "AI Developer",
+        "Blockchain developer",
+      ];
+
+      const typingElement = document.getElementById("typing-animation");
+      let textIndex = 0;
+      let charIndex = 0;
+
+      function typeText() {
+        if (charIndex < texts[textIndex].length) {
+          typingElement.textContent += texts[textIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeText, 100);
+        } else {
+          setTimeout(eraseText, 1500);
+        }
+      }
+
+      function eraseText() {
+        if (charIndex > 0) {
+          typingElement.textContent = texts[textIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(eraseText, 50);
+        } else {
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(typeText, 500);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        typeText();
+      });
+    </script>
+  </body>
+</html>
